@@ -1,5 +1,8 @@
 ### `v2.0.0` _2022-03-11_
-* first public release
+* po.viewer now have a brand new behavior
+* now can generate its own gallery div
+* user can add styling properties
+* code is little bit prettier
 
 ### `v1.5.0` _2022-03-10_
 * first public release
