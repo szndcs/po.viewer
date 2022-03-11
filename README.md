@@ -1,30 +1,22 @@
-# po.viewer v1.5.0
-A very simply and easy to use image viewer written in js
+# po.viewer v2.0.0
+A very simply and easy to use gallery and image viewer written in js
 
 ## Changelog
-
-### v1.5.0 - 2022-03-10
-- first public release
-- simplified the code, rewrite it in oop style
-- added caption attribute
-
-### v1.3.0 - 2022-01-19
-- added data attributes
-- made the js works automatically, you don't have to insert anything (just include the files)
-
-### v1.0.0 - 2022-01-05
-- created the functions, have to manually insert the div
-- added css
-- add new function: image rotation
+Click [here](changelog.md) to check the full changelog.
 
 ## Description
 Hi. Thanks for the interest of this project and hope you will enjoy my work.
-First of all, I made it as a study project. I wanted to create a simple picture viewer script what I can use in my different works. This can open the full version of the corresponding image in the same browser window just above the content. I searched accross the internet to get what I need but after a long period I decided to create my own software. This is po.viewer.
+First of all, I made it as a study project. I wanted to create a simple gallery and picture viewer script what I can use in my different works. This can open the full version of the corresponding image in the same browser window just above the content. I searched accross the internet to get what I need but after a long period I decided to create my own software. This is po.viewer.
 
 You can use it or fork it freely under the GNU v3.0 license.
 
 ## Dependencies
-po.viewer needs jQuery (version 3.6.0. or above) and Fomantic UI (version 2.8 or above) to works correctly. (Fomantic UI is a fork of Semantic UI.) So you have to include both of them in your html file. Simpliest way to include them through a CDN in the <head></head>:
+po.viewer needs jQuery (version 3.6.0. or above) and Fomantic UI (version 2.8 or above) to works correctly. (Fomantic UI is a fork of Semantic UI.) Their documentations could be found:
+- https://jquery.com/
+- https://fomantic-ui.com/
+
+## Install
+You need to include booth jQuery and Fomantic UI. The simpliest way is to include them through a CDN in the <kbd>`<head></head>`</kbd>. (You must include jQuery before anything else.) Then you can include the downloaded po.viewer files.
 
 ```html
 <!-- jQuery -->
@@ -32,82 +24,120 @@ po.viewer needs jQuery (version 3.6.0. or above) and Fomantic UI (version 2.8 or
 <!-- Fomantic UI -->
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.css">
 <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.js"></script>
-```
-
-You must include jQuery before anything else. After these steps you can include the downloaded po.viewer files.
-
-Documentations could be found:
-- https://jquery.com/
-- https://fomantic-ui.com/
-
-## Install
-You need include two files in the <head></head> after jQuery and Fomantic UI:
-
-```html
 <!-- po.viewer -->
 <script src="assets/js/po/po.js"></script>
 <link rel="stylesheet" type="text/css" href="assets/css/po/po.css">
 ```
 
-And that's all. Now you can use po.viewer. IF you reload your page and open the console of your browser (in Chrome use Ctrl + Shift + j) you can see an init message:
+Of course you can use po.viewer through a CDN too:
+
+```html
+<script src="https://cdn.jsdelivr.net/gh/szndcs/po.viewer@v2.0.0/v2.0.0/assets/js/po.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/szndcs/po.viewer@v2.0.0/v2.0.0/assets/css/po.css">
+```
+
+And that's all. Now you can use po.viewer. If you reload your page and open the console of your browser (in Chrome use Ctrl + Shift + j) you can see an init message:
 
 <samp>
-... po.viewer v1.5 init
+Fri, 11 Mar 2022 12:28:14 GMT > po.viewer 2.0.0 init ...<br>
+... done
 </samp>
 
 ## How to use it
-After the install process you can start using po.viewer. There are two ways:
-- create a gallery of your own style (or without any),
-- create a gallery using Fomantic UI css
+After the install process you can start using po.viewer. From v2.0.0 there are huge changes in the way po.viewer works. Now you don't need to add <kbd>img</kbd> tags to your html. You only need to add a <kbd>div</kbd> and a small portion of data using <kbd>poData</kbd> variable. The gallery will display where you put the <kbd>`<div class="po-gallery"></div>`</kbd> and you can manage the style of it thrugh the <kbd>poData</kbd> variable. Let's see how.
 
-### **Adding class to image tag**
-
-The simplest way is to just add <kbd>.po-thumbnail</kbd> class to your image tag. In this case the big image will be the same as the thumbnail:
+### **Inserting components into your page**
+Let's say you have the following simple html with a 3 image gallery:
 
 ```html
-<img src="path/to/image.jpg" class="po-thumbnail">
+<!DOCTYPE html>
+
+<html>
+     <head>
+          <meta charset="utf-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <title>Test gallery</title>
+          <meta name="description" content="">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <!-- jquery -->
+          <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+          <!-- fomantic ui -->
+          <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.css">
+          <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.8/dist/semantic.min.js"></script>
+          <!-- po.viewer -->
+          <script src="assets/js/po.js"></script>
+          <link rel="stylesheet" type="text/css" href="assets/css/po.css">
+     </head>
+     <body>
+          <div class="po-gallery"></div>
+          <script>
+               var poData = {
+                    thumbnailSize: 5,
+                    thumbnailRounded: true,
+                    thumbnailWithDescription: true,
+                    centeredThumbnails: true,
+                    images: [
+                         {
+                         thumbnail: '1.jpg',
+                         image: '',
+                         imageFolder: '',
+                         description: 'this is image 1',
+                         },
+                         {
+                         thumbnail: '2.jpg',
+                         image: '',
+                         imageFolder: '',
+                         description: 'this is image 2',
+                         },
+                         {
+                         thumbnail: '3.jpg',
+                         image: '',
+                         imageFolder: '',
+                         description: 'this is image 3',
+                         },
+                    ]
+               }
+          </script>
+     </body>
+</html>
 ```
 
-### **Adding different image and different path**
+As you can see, we inserted the packs, the <kbd>`<div class="po-gallery"></div>`</kbd> and the <kbd>poData</kbd> between <kbd>script</kbd> tags. You can manage the po.viewer behavior with <kbd>poData</kbd>.
 
-If your thumbnails and big images are in different folders or have different names, no problem. In this case the image tag's src attribute will hold the thumbnail image's path and name and you can use <kbd>data-folder</kbd> and <kbd>data-file</kbd> attributes to insert the big image's path and name. Please note: if you use data-folder, don't use trailing slashes!
+### `thumbnailSize: 1...6`
+* You can specify the thumbnail size with a numeric value between `1` and `6`
+* Can be omitted, in this case the default value will be `3`
 
-```html
-<img src="path/to/thumbnail.jpg" class="po-thumbnail" data-folder="path/to" data-file="image.jpg">
-```
+### `thumbnailRounded: true|false`
+* You can specify if the thumbnail hase rounded corners or not. If set to `true`, it will have round corners, and not if set to `false`
+* Can be omitted, in this case the default value will be `false`
 
-### **Adding description text**
+### `thumbnailWithDescription: true|false`
+* If you want to display the description text not only under the big picture, but under the thumbnail too, then you can set this to `true`. Otherwise set it to `false`
+* Can be omitted, in this case the default value will be `false`
 
-You can add a description to your image. It will shown in a greyed div under to the image. Just add <kbd>data-text</kbd> attribute with the text:
+### `centeredThumbnails: true|false`
+* The gallery displays in the center of the page. But the thumbnails aligned left by default. If you set this `true` then the thumbnails will centered too.  Otherwise set it to `false`
+* Can be omitted, in this case the default value will be `false`
 
-```html
-<img src="path/to/thumbnail.jpg" class="po-thumbnail" data-folder="path/to" data-file="image.jpg" data-text="this is the text">
-```
+### `images: []`
+* You have to specify each images' details as an object under this array, wraped in `{}`
 
-### **Styling with Fomantic UI**
-You can style your thumbnails thanks to Fomantic UI. Or you can create your own css.
-For example with Fomantic UI you can simply add the following classes to the thumbnail image's tag to make a chic gallery:
+* ### `thumbnail: 'path/to/thumbnail.jpg'`
+You can specify the thumbnail image (with path) with this. This is mandatory
 
-```html
-<img src="path/to/thumbnail.jpg" class="po-thumbnail ui medium rounded image" data-folder="path/to" data-file="image.jpg" data-text="this is the text">
-```
+* ### `image: 'image.jpg'`
+If your big image is different then thumbnail, then you can specify it's name here. Can be omitted, or set it to `''`. In this case the thumbnail's data will be used.
 
-Or you can use grid to align thumbnails and replace the 'medium' with 'fluid' the make the thumbnail as big as the containing cell:
+* ### `imageFolder: 'path/to'`
+If your big image is in a different folder, then you can specify it here. Can be omitted, or set it to `''`. In this case the thumbnail's data will be used.
 
-```html
-<div class="ui grid">
-    <div class="three wide column">
-        <img src="path/to/thumbnail1.jpg" class="po-thumbnail ui fluid rounded image" data-folder="path/to" data-file="image1.jpg" data-text="this is the text">
-    </div>
-    <div class="three wide column">
-        <img src="path/to/thumbnail2.jpg" class="po-thumbnail ui fluid rounded image" data-folder="path/to" data-file="image2.jpg" data-text="this is the text">
-    </div>
-</div>
-```
-
-It is up to you how to stilish your gallery. For more information please visit the site of Fomantic UI.
+* ### `description: 'some text'`
+You can add different descriptions to each image. Can be omitted, or set it to `''`.
 
 ## Todo
 
 I try to make it simplier, the behavior more smoother and add other options in the future. I don't think that this is the final version :)
+
 If you have any idea or found a bug please don't hesitate and write to me.
+
