@@ -1,4 +1,4 @@
-### `v2.5.0` _2022-03-11_
+### `v2.5.0` _2022-03-18_
 * added new function: pager. User now can switch between previous / next images in full size
 * code is little bit prettier again
 
