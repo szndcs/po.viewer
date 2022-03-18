@@ -1,3 +1,7 @@
+### `v2.5.0` _2022-03-11_
+* added new function: pager. User now can switch between previous / next images in full size
+* code is little bit prettier again
+
 ### `v2.0.0` _2022-03-11_
 * po.viewer now have a brand new behavior
 * now can generate its own gallery div
