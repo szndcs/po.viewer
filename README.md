@@ -33,8 +33,8 @@ Of course you can use po.viewer through a CDN too:
 
 ```html
 <!-- po.viewer -->
-<script src="https://cdn.jsdelivr.net/gh/szndcs/po.viewer@main/v2.0.0/assets/js/po.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/szndcs/po.viewer@main/v2.0.0/assets/css/po.css">
+<script src="https://cdn.jsdelivr.net/gh/szndcs/po.viewer@main/v2.5.0/assets/js/po.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/szndcs/po.viewer@main/v2.5.0/assets/css/po.css">
 ```
 
 And that's all. Now you can use po.viewer. If you reload your page and open the console of your browser (in Chrome use Ctrl + Shift + j) you can see an init message:
