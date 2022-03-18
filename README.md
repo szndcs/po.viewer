@@ -1,4 +1,4 @@
-# po.viewer v2.0.0
+# po.viewer v2.5.0
 A very simply and easy to use gallery and image viewer written in js
 
 ## Changelog
@@ -40,7 +40,7 @@ Of course you can use po.viewer through a CDN too:
 And that's all. Now you can use po.viewer. If you reload your page and open the console of your browser (in Chrome use Ctrl + Shift + j) you can see an init message:
 
 <samp>
-Fri, 11 Mar 2022 12:28:14 GMT > po.viewer 2.0.0 init ...<br>
+Fri, 11 Mar 2022 12:28:14 GMT > po.viewer 2.5.0 init ...<br>
 ... done
 </samp>
 
