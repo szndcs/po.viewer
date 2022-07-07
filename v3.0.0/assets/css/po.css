@@ -1,0 +1,107 @@
+/**
+ * # po.viewer
+ * Version: 2.7.0
+ * https://github.com/szndcs/po.viewer
+ *
+ * Copyright 2022 Contributors
+ * Released under the GNU v3.0 license
+ * https://choosealicense.com/licenses/gpl-3.0/
+ *
+ */
+
+.po-gallery {
+    border : 0;
+    padding: 0;
+    margin : 0px;
+}
+
+.po-frame {
+    position: fixed;
+    left    : 0px;
+    top     : 0px;
+    width   : 100vw;
+    height  : 100vh;
+    z-index : -1000;
+    opacity : 0;
+}
+
+.po-frame-icons {
+    position    : absolute;
+    margin-left : auto;
+    margin-right: auto;
+    top         : 5px;
+    left        : 0;
+    right       : 0;
+    width       : 150px;
+    text-align  : center;
+    z-index     : 1;
+}
+
+.po-frame-content {
+    position       : absolute;
+    display        : flex;
+    align-items    : center;
+    justify-content: center;
+    text-align     : center;
+    width          : 100vw;
+    height         : 100vh;
+    border         : 0;
+    margin         : 0;
+    padding        : 0;
+    top            : 0;
+    z-index        : 0;
+
+}
+
+.po-frame-content img {
+    border : 0;
+    margin : 0;
+    padding: 0;
+    z-index: 0;
+}
+
+@media (max-device-width: 500px) {
+    .po-frame-content img {
+        width : 90vw;
+        height: auto;
+    }
+}
+
+@media (min-device-width: 500px) {
+    .po-frame-content img {
+        height: 90vh;
+        width : auto;
+    }
+}
+
+.po-frame-content figure {
+    border    : 0;
+    box-shadow: 7px 7px 6px rgba(128, 128, 128, 0.6);
+}
+
+figcaption {
+    text-align: center;
+}
+
+.po-frame-content figcaption {
+    background: rgb(94, 94, 94);
+    color     : white;
+}
+
+.po-frame-background {
+    width           : 100vw;
+    height          : 100vh;
+    background-color: white;
+    opacity         : .7;
+}
+
+.po-blured {
+    filter        : blur(8px);
+    -webkit-filter: blur(8px);
+}
+
+.po-thumbnail,
+.po-picture,
+.icon {
+    cursor: pointer !important;
+}
