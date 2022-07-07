@@ -1,3 +1,12 @@
+### `v3.0.0` _2022-07-07_
+* huge improvements happened in frontend and backend
+* frontend: you can now have multiple galleries at the same time, just add different ids to the divs
+* frontend: now you can rotate the opened image
+* frontend: the calling of the viewer is more transparent, more structured
+* backend: the js code is now more oop
+* backend: the code can handle the errors and help you in console
+* backend: now there is a minified version (plus the map file)
+
 ### `v2.5.0` _2022-03-18_
 * added new function: pager. User now can switch between previous / next images in full size
 * code is little bit prettier again
